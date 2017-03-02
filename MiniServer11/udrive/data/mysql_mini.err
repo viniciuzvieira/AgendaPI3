@@ -1,0 +1,124 @@
+161116 20:15:14 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161116 20:26:35 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161116 20:26:37 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 2  user: 'root'
+
+161116 20:26:37 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161116 21:27:02 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161116 22:27:27 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161116 22:27:27 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161117 21:00:57 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161117 21:12:48 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161117 21:12:50 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 4  user: 'root'
+
+161117 21:12:50 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 3  user: 'root'
+
+161117 21:12:50 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161118 17:51:28 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161118 17:56:15 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161118 17:56:15 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161118 17:56:19 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161118 19:01:50 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161118 19:01:51 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161118 19:11:51 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161118 20:31:45 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161118 22:41:30 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161118 22:41:30 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161121 17:45:56 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161121 18:55:59 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161121 18:55:59 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161122 19:08:09 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161122 19:54:22 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161122 19:54:24 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 4  user: 'root'
+
+161122 19:54:24 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 3  user: 'root'
+
+161122 19:54:24 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161123 17:17:10 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161123 18:56:39 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161123 18:56:39 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161123 19:18:36 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161124 17:39:15 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161124 18:58:15 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161124 18:58:15 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161125 19:32:27 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161125 22:38:56 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161125 22:38:59 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 108  user: 'root'
+
+161125 22:38:59 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 107  user: 'root'
+
+161125 22:39:00 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161129 17:23:04 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161129 17:23:35 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161129 17:23:35 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161129 17:23:37 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161129 18:16:54 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161129 18:16:54 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161202 20:51:38 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161202 22:33:46 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161202 22:33:48 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 6  user: 'root'
+
+161202 22:33:48 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 5  user: 'root'
+
+161202 22:33:48 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 2  user: 'root'
+
+161202 22:33:48 [Warning] \bin\mysqld-opt.exe: Forcing close of thread 1  user: 'root'
+
+161202 22:33:48 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161203 11:10:20 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161203 11:56:31 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161203 11:56:31 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161203 12:03:52 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+161203 12:11:16 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+161203 12:11:16 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+161203 14:36:54 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
