@@ -12,6 +12,10 @@ package br.com.senac.tads.pi3.agenda.contato;
 public class Contato {
 
     private Long id;
+    private String nome;
+    private String data;
+    private String telefone;
+    private String email;
 
     public Long getId() {
         return id;
@@ -27,6 +31,14 @@ public class Contato {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+        public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 
     public String getTelefone() {
@@ -44,8 +56,5 @@ public class Contato {
     public void setEmail(String email) {
         this.email = email;
     }
-    private String nome;
-    private String telefone;
-    private String email;
     
 }
