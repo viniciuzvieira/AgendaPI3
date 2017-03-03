@@ -29,7 +29,7 @@ public class TelaInicial extends javax.swing.JFrame {
     
 
     //Colocando a lista na TelaInicial
-    DefaultTableModel tmContato = new DefaultTableModel(null, new String[]{"Nome", "Email", "Telefone"});
+    DefaultTableModel tmContato = new DefaultTableModel(null, new String[]{"Nome", "DataDeNascimento", "Email", "Telefone"});
     List<Contato> contatos;
     ListSelectionModel lsmContato;
 
@@ -221,6 +221,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jbNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoActionPerformed
         habilitaDados();
         jtNome.setText("");
+        jtData.setText("");
         jtTelefone.setText("");
         jtEmail.setText("");
     }//GEN-LAST:event_jbNovoActionPerformed
@@ -231,21 +232,22 @@ public class TelaInicial extends javax.swing.JFrame {
             try {
                 cadastro();
                 JOptionPane.showMessageDialog(null, "Contato salvo com sucesso!");
-                listarContatos();
             } catch (SQLException ex) {
                 Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
             }
-            desabilitaDados();
+            
         }
-
+        desabilitaDados();
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
+        
         try {
             listarContatos();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro no campo de pesquisa" + ex);
+            Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
+    
 
     }//GEN-LAST:event_jbPesquisarActionPerformed
 
@@ -279,9 +281,10 @@ public class TelaInicial extends javax.swing.JFrame {
 
         Contato c1 = new Contato();
         c1.setNome(jtNome.getText());
-        c1.setTelefone(jtTelefone.getText());
-        c1.setEmail(jtEmail.getText());
         c1.setData(jtData.getText());
+        c1.setEmail(jtEmail.getText());
+        c1.setTelefone(jtTelefone.getText());
+
         ContatoDao dao = new ContatoDao();
         dao.adiciona(c1);
 
@@ -315,11 +318,13 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jTabelaLinhaSelecionada(JTable tabela) {
         if (jTabela.getSelectedRow() != -1) {
             jtNome.setText(contatos.get(tabela.getSelectedRow()).getNome());
+            jtData.setText(contatos.get(tabela.getSelectedRow()).getData());
             jtEmail.setText(contatos.get(tabela.getSelectedRow()).getEmail());
             jtTelefone.setText(contatos.get(tabela.getSelectedRow()).getTelefone());
         } else {
             //quando apagar mostrar em branco
             jtNome.setText("");
+            jtData.setText("");
             jtEmail.setText("");
             jtTelefone.setText("");
         }
@@ -370,9 +375,11 @@ public class TelaInicial extends javax.swing.JFrame {
                 tmContato.addRow(linha);
                 tmContato.setValueAt(contatos.get(i).getNome(), i, 0);// campo 1
                 tmContato.addRow(linha);
-                tmContato.setValueAt(contatos.get(i).getEmail(), i, 1);// campo 2
+                tmContato.setValueAt(contatos.get(i).getData(), i, 0);// campo 2
                 tmContato.addRow(linha);
-                tmContato.setValueAt(contatos.get(i).getTelefone(), i, 2);// campo 3
+                tmContato.setValueAt(contatos.get(i).getEmail(), i, 1);// campo 3
+                tmContato.addRow(linha);
+                tmContato.setValueAt(contatos.get(i).getTelefone(), i, 2);// campo 4
             }
         }
     }

@@ -29,15 +29,16 @@ public class ContatoDao {
     }
     
     public void adiciona(Contato c1) throws SQLException{
-        String sql = "insert into contato(Nome, Email, Telefone)"+
-                "values (?,?,?)";
+        String sql = "insert into contato(Nome, DataDeNascimento, Email, Telefone)"+
+                "values (?,?,?,?)";
         //prepara conexao, execusao do java para o sql
         PreparedStatement stmt = conexao.prepareStatement(sql);
         
         //seta os valores
         stmt.setString(1, c1.getNome());
-        stmt.setString(2, c1.getEmail());
-        stmt.setString(3, c1.getTelefone());
+        stmt.setString(2, c1.getData());
+        stmt.setString(3, c1.getEmail());
+        stmt.setString(4, c1.getTelefone());
         //executa
         stmt.execute();
         stmt.close();
@@ -56,6 +57,7 @@ public class ContatoDao {
         while(rs.next()){
             Contato c1 = new Contato();
             c1.setNome(rs.getString("Nome"));
+            c1.setData(rs.getString("DataDeNascimento"));
             c1.setEmail(rs.getString("Email"));
             c1.setTelefone(rs.getString("Telefone"));
             minhaLista.add(c1);
@@ -67,13 +69,14 @@ public class ContatoDao {
     }
     
     public void altera(Contato c1) throws SQLException{
-        String sql = "update contato set Nome=?, Email=?, Telefone=? where id=?"; 
+        String sql = "update contato set Nome=?, DataDeNascimento=?, Email=?, Telefone=?, DataAtualiza = NOW() where id=?"; 
         PreparedStatement stmt = conexao.prepareStatement(sql);
         
         //seta os valores
         stmt.setString(1, c1.getNome());
-        stmt.setString(2, c1.getEmail());
-        stmt.setString(3, c1.getTelefone());
+        stmt.setString(2, c1.getData());
+        stmt.setString(3, c1.getEmail());
+        stmt.setString(4, c1.getTelefone());
         stmt.setLong(6, c1.getId()); //pega ID
         //executa
         stmt.execute();

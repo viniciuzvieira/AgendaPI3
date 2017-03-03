@@ -33,7 +33,7 @@ public class Contato {
         this.nome = nome;
     }
     
-        public String getData() {
+    public String getData() {
         return data;
     }
 
