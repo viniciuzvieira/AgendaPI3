@@ -26,13 +26,6 @@ import javax.swing.event.ListSelectionListener;
 public class TelaInicial extends javax.swing.JFrame {
 
 
-    
-
-    //Colocando a lista na TelaInicial
-    DefaultTableModel tmContato = new DefaultTableModel(null, new String[]{"Nome", "DataDeNascimento", "Email", "Telefone"});
-    List<Contato> contatos;
-    ListSelectionModel lsmContato;
-
     public TelaInicial() {
         initComponents();
         desabilitaDados();
@@ -219,115 +212,52 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoActionPerformed
-        habilitaDados();
-        jtNome.setText("");
-        jtData.setText("");
-        jtTelefone.setText("");
-        jtEmail.setText("");
+
     }//GEN-LAST:event_jbNovoActionPerformed
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-        // se verificaDados for true ele cadastra
-        if (verificaDados()) {
-            try {
-                cadastro();
-                JOptionPane.showMessageDialog(null, "Contato salvo com sucesso!");
-            } catch (SQLException ex) {
-                Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
-            }
             
-        }
-        desabilitaDados();
+        
+
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
-        
-        try {
-            listarContatos();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
-        }
     
 
     }//GEN-LAST:event_jbPesquisarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        try {
-            excluirContato();
-            mostraPesquisa(contatos);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro no botão de exluir" + ex);
-        }
 
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     public void excluirContato() throws SQLException {
-        int resp = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir este contato?", "Confirmação", JOptionPane.YES_NO_OPTION);
-        if (resp == JOptionPane.YES_NO_OPTION) {
-            ContatoDao dao = new ContatoDao();
-            dao.remove(contatos.get(jTabela.getSelectedRow()));
-            mostraPesquisa(contatos);
-        }
+
 
     }
 
     public void listarContatos() throws SQLException {
-        ContatoDao dao = new ContatoDao();
-        contatos = dao.getLista("%" + jtPesquisa.getText() + "%");//pesquisa do nome
-        mostraPesquisa(contatos);
+
     }
 
     public void cadastro() throws SQLException {
 
-        Contato c1 = new Contato();
-        c1.setNome(jtNome.getText());
-        c1.setData(jtData.getText());
-        c1.setEmail(jtEmail.getText());
-        c1.setTelefone(jtTelefone.getText());
-
-        ContatoDao dao = new ContatoDao();
-        dao.adiciona(c1);
 
     }
 
     public void desabilitaDados() {
-        jtNome.setEditable(false);
-        jtData.setEditable(false);
-        jtEmail.setEditable(false);
-        jtTelefone.setEditable(false);
+
     }
 
     public void habilitaDados() {
-        jtNome.setEditable(true);
-        jtData.setEditable(true);
-        jtEmail.setEditable(true);
-        jtTelefone.setEditable(true);
+
     }
 
     public boolean verificaDados() {
-        //se campo Nome e Email não estiverem preenchidos ele não salva
-        if (!jtNome.getText().equals("") && !jtEmail.getText().equals("")) {
 
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(null, "Campos Nome ou Email não preenchidos!");
-            return false;
-        }
     }
 
     private void jTabelaLinhaSelecionada(JTable tabela) {
-        if (jTabela.getSelectedRow() != -1) {
-            jtNome.setText(contatos.get(tabela.getSelectedRow()).getNome());
-            jtData.setText(contatos.get(tabela.getSelectedRow()).getData());
-            jtEmail.setText(contatos.get(tabela.getSelectedRow()).getEmail());
-            jtTelefone.setText(contatos.get(tabela.getSelectedRow()).getTelefone());
-        } else {
-            //quando apagar mostrar em branco
-            jtNome.setText("");
-            jtData.setText("");
-            jtEmail.setText("");
-            jtTelefone.setText("");
-        }
+
     }
 
     /**
@@ -363,24 +293,5 @@ public class TelaInicial extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void mostraPesquisa(List<Contato> contatos) {
-        //while vai pegar as linhas selecionadas que forem maiores que zero e apagara
-        while (tmContato.getRowCount() > 0) {
-            tmContato.removeRow(0);
-        }
-        if (contatos.size() == 0) {
-            JOptionPane.showMessageDialog(null, "Nenhum contato cadastrado");
-        } else {
-            String[] linha = new String[]{null, null, null};
-            for (int i = 0; i < contatos.size(); i++) {
-                tmContato.addRow(linha);
-                tmContato.setValueAt(contatos.get(i).getNome(), i, 0);// campo 1
-                tmContato.addRow(linha);
-                tmContato.setValueAt(contatos.get(i).getData(), i, 0);// campo 2
-                tmContato.addRow(linha);
-                tmContato.setValueAt(contatos.get(i).getEmail(), i, 1);// campo 3
-                tmContato.addRow(linha);
-                tmContato.setValueAt(contatos.get(i).getTelefone(), i, 2);// campo 4
-            }
-        }
-    }
+
 }
