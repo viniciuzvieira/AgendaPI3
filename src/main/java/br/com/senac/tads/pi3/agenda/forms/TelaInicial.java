@@ -23,6 +23,11 @@ import javax.swing.event.ListSelectionListener;
 public class TelaInicial extends javax.swing.JFrame {
 
 
+    //Colocando a lista na TelaInicial
+    DefaultTableModel tmContato = new DefaultTableModel(null, new String[]{"Id", "Nome", "Data De Nascimento", "Email", "Telefone"});
+    List<Contato> contatos;
+    ListSelectionModel lsmContato;
+    
     public TelaInicial() {
         initComponents();
         desabilitaDados();
@@ -234,19 +239,43 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {                                            
-
+      try {
+            listarContatos();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao exluir: " + ex);
+        }
     }                                           
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // se verificaDados for true ele cadastra
+        if (verificaDados()) {
+            try {
+                cadastro();
+                JOptionPane.showMessageDialog(null, "Contato salvo com sucesso!");
+                listarContatos();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao salvar: " + ex);
+            }
 
+        }
+        desabilitaDados();
     }                                        
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {                                          
-
+        try {
+            excluirContato();
+            listarContatos();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao exluir: " + ex);
+        }
     }                                         
 
     private void jbNovoActionPerformed(java.awt.event.ActionEvent evt) {                                       
-
+        habilitaDados();
+        jtNome.setText("");
+        jtData.setText("");
+        jtTelefone.setText("");
+        jtEmail.setText("");
     }                                      
 
     public void alteraContato() throws SQLException {
