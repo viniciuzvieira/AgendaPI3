@@ -279,44 +279,121 @@ public class TelaInicial extends javax.swing.JFrame {
     }                                      
 
     public void alteraContato() throws SQLException {
-
+        if (jTabela.getSelectedRow() != -1) {
+            if (verificaDados()) {
+                Contato c1 = new Contato();
+                ContatoDao dao = new ContatoDao();
+                c1.setNome(jtNome.getText());
+                c1.setData(jtData.getText());
+                c1.setTelefone(jtTelefone.getText());
+                c1.setEmail(jtEmail.getText());
+                dao.altera(c1);
+                JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+            }
+        }        
     }
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {                                          
-
+        try {
+            alteraContato();
+            mostraPesquisa(contatos);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao alterar: " + ex);
+        }
     }                                         
 
     public void excluirContato() throws SQLException {
-
+        int resp = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir este contato?", "Confirmação", JOptionPane.YES_NO_OPTION);
+        if (resp == JOptionPane.YES_NO_OPTION) {
+            ContatoDao dao = new ContatoDao();
+            dao.remove(contatos.get(jTabela.getSelectedRow()));
+            mostraPesquisa(contatos);
+        }
     }
 
     public void listarContatos() throws SQLException {
+        ContatoDao dao = new ContatoDao();
+        contatos = dao.getLista("%" + jtPesquisa.getText() + "%");//pesquisa do nome
+        mostraPesquisa(contatos);
 
     }
 
     public void cadastro() throws SQLException {
+        Contato c1 = new Contato();
+        c1.setNome(jtNome.getText());
+        c1.setData(jtData.getText());
+        c1.setEmail(jtEmail.getText());
+        c1.setTelefone(jtTelefone.getText());
+
+        ContatoDao dao = new ContatoDao();
+        dao.adiciona(c1);
 
 
     }
 
     public void desabilitaDados() {
-
+        jtNome.setEditable(false);
+        jtData.setEditable(false);
+        jtEmail.setEditable(false);
+        jtTelefone.setEditable(false);
     }
 
     public void habilitaDados() {
-
+        jtNome.setEditable(true);
+        jtData.setEditable(true);
+        jtEmail.setEditable(true);
+        jtTelefone.setEditable(true);
     }
 
     public boolean verificaDados() {
-
+        //se campo Nome e Email não estiverem preenchidos ele não salva
+        if (!jtNome.getText().equals("") && !jtEmail.getText().equals("")) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Campos Nome ou Email não preenchidos!");
+            return false;
+        }
     }
 
     private void jTabelaLinhaSelecionada(JTable tabela) {
+        if (jTabela.getSelectedRow() != -1) {
+            jtNome.setText(contatos.get(tabela.getSelectedRow()).getNome());
+            jtData.setText(contatos.get(tabela.getSelectedRow()).getData());
+            jtEmail.setText(contatos.get(tabela.getSelectedRow()).getEmail());
+            jtTelefone.setText(contatos.get(tabela.getSelectedRow()).getTelefone());
+        } else {
+            //quando apagar mostrar em branco
+            jtNome.setText("");
+            jtData.setText("");
+            jtEmail.setText("");
+            jtTelefone.setText("");
+        }
 
     }
 
     private void mostraPesquisa(List<Contato> contatos) {
-
+        //while vai pegar as linhas selecionadas que forem maiores que zero e apagar
+        while (tmContato.getRowCount() > 0) {
+            tmContato.removeRow(0);
+        }
+        if (contatos.size() == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum contato cadastrado");
+        } else {
+            String[] linha = new String[]{null, null, null, null};
+            for (int i = 0; i < contatos.size(); i++) {
+                habilitaDados();
+                tmContato.addRow(linha);
+                tmContato.setValueAt(contatos.get(i).getId(), i, 0);// campo 1
+                tmContato.addRow(linha);
+                tmContato.setValueAt(contatos.get(i).getNome(), i, 1);// campo 2
+                tmContato.addRow(linha);
+                tmContato.setValueAt(contatos.get(i).getData(), i, 2);// campo 3
+                tmContato.addRow(linha);
+                tmContato.setValueAt(contatos.get(i).getEmail(), i, 3);// campo 4
+                tmContato.addRow(linha);
+                tmContato.setValueAt(contatos.get(i).getTelefone(), i, 4);// campo 5
+            }
+        }
     }
 
     /**
