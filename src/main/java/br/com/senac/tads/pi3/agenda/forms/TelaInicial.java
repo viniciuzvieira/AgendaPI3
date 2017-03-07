@@ -17,8 +17,10 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 /**
- *
- * @author Vinicius
+ Grupo:
+Vinícius Vieira da Silva
+Eloísa Apolinário
+Lívia Cristina
  */
 public class TelaInicial extends javax.swing.JFrame {
     //Colocando a lista na TelaInicial
